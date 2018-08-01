@@ -11,6 +11,8 @@ In this case I get a number of (X,Y) points and use that to train a Machine Lear
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    
+    <!-- Load TensorFlow.js -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"> </script>
 </head>
 <body>
@@ -20,19 +22,24 @@ In this case I get a number of (X,Y) points and use that to train a Machine Lear
 
     <script>
         async function LearnLinear() {
+            // Define a model for linear regression.
             const model = tf.sequential();
             model.add(tf.layers.dense({units:1, inputShape: [1]}))
 
+            // Prepare the model for training: Specify the loss and the optimizer.
             model.compile({
                 loss:'meanSquaredError',
                 optimizer:'sgd'
             });
 
+            // Generate some synthetic data for training.
             const xs = tf.tensor2d([0, 1, 2, 3, 4, 5], [6, 1]);
             const ys = tf.tensor2d([0, 1, 2, 3, 4, 5], [6, 1]);
 
+            // Train the model using the data.
             await model.fit(xs,ys,{epochs:250});
 
+            // Use the model to do inference on a data point the model hasn't seen before:
             document.getElementById('output').innerHTML = model.predict(tf.tensor2d([6], [1, 1]));
         }
 
