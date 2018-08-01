@@ -30,7 +30,7 @@
             const xs = tf.tensor2d([0, 1, 2, 3, 4, 5], [6, 1]);
             const ys = tf.tensor2d([0, 1, 2, 3, 4, 5], [6, 1]);
 
-            await model.fit(xs,ys,{epochs:10050});
+            await model.fit(xs,ys,{epochs:250});
 
             document.getElementById('output').innerHTML = model.predict(tf.tensor2d([6], [1, 1]));
         }
