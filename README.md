@@ -1,5 +1,6 @@
 # Linear-Learn-in-TensorFlow.js
 
+In this case I get a number of (X,Y) points and use that to train a Machine Learned model that can then infer the linear relationship between them. Thus, when I give a future X value, it’s able to derive the Y for that X. It’s a really simplistic scenario, but it gives you the basics for how Machine Learning works — by using training data, a neural network can derive the relationships between them, and those relationships can be used to predict or classify new values. 
 
 ```js
 
